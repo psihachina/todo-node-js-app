@@ -1,12 +1,6 @@
-const { Task, MainViewModel } = require('../models/ViewModels')
+const { MainViewModel } = require('../models')
 
 module.exports = function(r, q) {
-    let model = new MainViewModel('TODO LIST');
-    model.tasks = [
-        //new Task("Title 1", new Date(), new Date(), "Finished"),
-        //new Task("Title 2", new Date(), new Date(), "In work"),
-        //new Task("Title 3", new Date(), new Date(), "Finished"),
-        //new Task("Title 4", new Date(), new Date(), "In work"),
-    ];
+    let model = new MainViewModel('TODO LIST', db.getTasks(), db.getStatuses());
     q.render('index', model);
 }

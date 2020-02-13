@@ -8,6 +8,7 @@ block titleHeader
 
 block content
     .container-fluid
+        - var dateToday = new Date().toISOString().split('T')[0]
         form(method="POST", action="/add")
             .form-row.justify-content-center  
                 .form-group.col-sm-6    
@@ -16,13 +17,15 @@ block content
             .form-row.justify-content-center
                 .form-group.col-sm-3
                     label Start date
-                    input.form-control(name="startDate", type="date" required)
+                    input.form-control(name="startDate", type="dateToday" required)
                 .form-group.col-sm-3
                     label End date
-                    input.form-control(name="endDate", type="date" required)
+                    input.form-control(name="endDate", type="dateToday" required)
             .form-row.justify-content-center
                     label.col-sm-3 Status
-                    input.col-sm-3.form-control(name="status", type="checkbox")
+                    input.col-sm-3.form-control(name="status")
+                        each item in statuses
+                            option(value=item.id) #{item.name}
             .form-row.justify-content-center.mt-5
                     input.btn.btn-secondary.form-control.col-sm-6(type="submit", value="Add")
 
@@ -40,9 +43,9 @@ block content
                     - var className = ''
 
                     each item in tasks
-                        if item.status == 'Finished'
+                        if item.status.id == 2
                             - className = 'task-success'
-                        else if item.status == 'In work'
+                        else if item.status.id == 3
                             - className = 'task-no-success'
                         else
                             - className = ''
@@ -51,8 +54,8 @@ block content
                             td
                             td.name.box
                                 span #{item.title}
-                            td #{item.startDate.toLocaleString()}
-                            td #{item.endDate.toLocaleString()}
+                            td #{item.startDate}
+                            td #{item.endDate}
                             td #{item.status}
                             td
                                 div
