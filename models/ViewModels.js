@@ -2,8 +2,8 @@ exports.Task = class {
 
     constructor(title, start, end, status) {
         this.title = title || '';
-        this.startDate = start || new Date;
-        this.endDate = end || new Date;
+        this.startDate = start || new Date();
+        this.endDate = end || new Date();
         this.status = status || '';
     }
 }

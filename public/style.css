@@ -23,3 +23,15 @@ tbody tr td {
 body {
     font-family: 'Quantico', sans-serif;
 }
+
+.table .name {
+    max-width: 30vm;
+}
+
+.table .table-success {
+    background: #20c997;
+}
+
+.table .task-no-success {
+    background: #ffc107;
+}
