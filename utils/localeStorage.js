@@ -10,24 +10,24 @@ let tasks = [
     new Task('Title 1', null, null, statuses[0]),
     new Task('Title 2', null, null, statuses[1]),
     new Task('Title 3', null, null, statuses[2]),
-]
+];
 
 let db = {
     getStatuses: id => {
         if (!id) return statuses;
-
         let item = statuses.filter(x => x.id === id)[0];
+        return item || null;
     },
+
     getTasks: id => {
         if (!id) return tasks;
-
         let item = tasks.filter(x => x.id === id)[0];
         return item || null;
     },
 
     addTask: x => {
         x.id = Task.count++;
-        tasks.push(x)
+        tasks.push(x);
     },
 
     updateTask: x => {
@@ -48,3 +48,5 @@ let db = {
         }
     }
 }
+
+module.exports = db;

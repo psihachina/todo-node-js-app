@@ -28,10 +28,10 @@ body {
     max-width: 30vm;
 }
 
-.table .table-success {
-    background: #20c997;
+.table .task-success {
+    background: #20c997 !important;
 }
 
 .table .task-no-success {
-    background: #ffc107;
+    background: #ffc107 !important;
 }
