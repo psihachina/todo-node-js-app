@@ -29,3 +29,4 @@ exports.MainViewModel = class {
         this.editItem = editItem || null;
     }
 }
+
