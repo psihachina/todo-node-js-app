@@ -130,3 +130,21 @@ exports.removeTask = function(id) {
         }).close();
     });
 }
+
+
+exports.addLog = function(message,date){
+    return new Promise((resolve, reject)=>{
+        console.log(date + " | " + message);
+
+        let query = 'INSERT INTO Logs (Message, Date) VALUES(?,?)';
+        let params = [
+            message || '',
+            date || '',
+        ];
+
+        connection().run(query,params, (err, result)=>{
+            if(err) reject(err);
+            else resolve(result);
+        }).close();
+    })
+}

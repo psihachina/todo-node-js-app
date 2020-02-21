@@ -3,7 +3,7 @@ let db = require('../utils/sqlitedb');
 
 
 exports.get = (r, q) => {
-    console.log(Date().toLocaleString().substr(16,8) + " | Get from db");
+    db.addLog("Get from db", Date().toLocaleString().substr(16,8));
     db.getTasks(+r.params.id).then(item => {
         if(item) {
             console.log(item);
@@ -20,7 +20,7 @@ exports.get = (r, q) => {
 }
 
 exports.add = (r, q) => {
-    console.log(Date().toLocaleString().substr(16,8) + " | Add in db");
+    db.addLog("Add in db", Date().toLocaleString().substr(16,8));
     db.getStatuses(+r.body.status).then(status=>{
         r.body.status = status;
         db.addTask(r.body).then(x=>{
@@ -30,7 +30,7 @@ exports.add = (r, q) => {
 }
 
 exports.update = (r, q) => {
-    console.log(Date().toLocaleString().substr(16,8) + " | Update in db");
+    db.addLog("Update in db", Date().toLocaleString().substr(16,8));
     r.body.id = +r.body.id;
     db.getStatuses(+r.body.status).then(x => {
         r.body.status = x;
@@ -41,7 +41,7 @@ exports.update = (r, q) => {
 };
 
 exports.delete = (r, q) => {
-    console.log(Date().toLocaleString().substr(16,8) + " | Delete from db");
+    db.addLog("Delete from db", Date().toLocaleString().substr(16,8));
     db.removeTask(+r.params.id).then(x=>{
         q.redirect('/');
     });
