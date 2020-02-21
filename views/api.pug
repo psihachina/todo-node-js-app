@@ -1,0 +1,29 @@
+extends layout.pug
+
+block title
+    title TODO LIST | API
+
+block titleHeader
+    h1 API
+
+block content
+    .container-fluid
+        table.table
+            thead
+                tr
+                    th #
+                    th Name
+                    th Method
+                    th URL
+                    th Request
+                    th Result
+            tbody
+                tr
+                    td
+                    td Get all tasks
+                    td GET
+                    td
+                        a(href-"/api/tasks") /api/tasks
+                    td JSON for Request
+                    td JSON RESULT
+                    

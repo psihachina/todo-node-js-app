@@ -14,7 +14,7 @@ exports.get = (r, q) => {
                 });
             });
         } else {
-            q.redirect('../');
+            q.redirect('/');
         }
     });
 }
@@ -24,7 +24,7 @@ exports.add = (r, q) => {
     db.getStatuses(+r.body.status).then(status=>{
         r.body.status = status;
         db.addTask(r.body).then(x=>{
-            q.redirect('../');
+            q.redirect('/');
         });
     });
 }
@@ -35,7 +35,7 @@ exports.update = (r, q) => {
     db.getStatuses(+r.body.status).then(x => {
         r.body.status = x;
         db.updateTask(r.body).then(y => {
-            q.redirect('../');
+            q.redirect('/');
         });
     });
 };
@@ -43,6 +43,6 @@ exports.update = (r, q) => {
 exports.delete = (r, q) => {
     db.addLog("Delete from db", Date().toLocaleString().substr(16,8));
     db.removeTask(+r.params.id).then(x=>{
-        q.redirect('../');
+        q.redirect('/');
     });
 };

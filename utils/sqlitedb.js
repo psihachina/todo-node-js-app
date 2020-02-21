@@ -148,3 +148,4 @@ exports.addLog = function(message,date){
         }).close();
     })
 }
+
