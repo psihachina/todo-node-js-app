@@ -12,5 +12,7 @@ router.get('/delete/:id', crud.delete);
 router.get('/api', api.info);
 router.get('/api/tasks',api.auth, api.get);
 router.post('/api/tasks',api.auth, api.add);
+router.delete('/api/tasks', api.auth, api.remove);
+router.put('/api/tasks', api.auth, api.update);
 
 module.exports = router;
