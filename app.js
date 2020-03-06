@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const errorHandler = require('./routes/404');
 //создаем веб-приложение
 let app = express();
-const port = 80;
+const port = 3000;
 
 app.set('view engine', 'pug')
 
